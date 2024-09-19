@@ -43,6 +43,12 @@ class HomeView extends StackedView<HomeViewModel> {
                         style: const TextStyle(color: Colors.white),
                       ),
                     ),
+                    MaterialButton(
+                      onPressed: () {
+                        viewModel.navigateToLoginPage();
+                      },
+                      child: const Text("Login page"),
+                    )
                   ],
                 ),
                 Row(

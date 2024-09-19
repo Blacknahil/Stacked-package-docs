@@ -16,6 +16,14 @@ class LoginView extends StackedView<LoginViewModel> {
       backgroundColor: Colors.red,
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+        child: Center(
+          child: MaterialButton(
+            onPressed: () {
+              viewModel.navigateToHomePage();
+            },
+            child: const Text("Home page "),
+          ),
+        ),
       ),
     );
   }
