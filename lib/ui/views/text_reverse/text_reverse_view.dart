@@ -1,3 +1,4 @@
+import 'package:first_app/ui/common/ui_helpers.dart';
 import 'package:first_app/ui/views/text_reverse/text_reverse_view.form.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -18,11 +19,49 @@ class TextReverseView extends StackedView<TextReverseViewModel>
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      appBar: AppBar(title: const Text('Text Reverser')),
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              verticalSpaceMedium,
+              const Text(
+                'Text to Reverse',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+              verticalSpaceSmall,
+              TextFormField(controller: reverseInputController),
+              if (viewModel.hasReverseInputValidationMessage) ...[
+                verticalSpaceTiny,
+                Text(
+                  viewModel.reverseInputValidationMessage!,
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+              verticalSpaceMedium,
+              Text(
+                viewModel.reversedText,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  @override
+  void onViewModelReady(TextReverseViewModel viewModel) {
+    syncFormWithViewModel(viewModel);
   }
 
   @override

@@ -90,7 +90,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i6.TextReverseView: (data) {
       return _i7.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i6.TextReverseView(),
+        builder: (context) => _i6.TextReverseView(),
         settings: data,
       );
     },
