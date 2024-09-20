@@ -15,7 +15,7 @@ class StartupViewModel extends BaseViewModel {
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
-    _navigationService.replaceWith(Routes.textReverseView);
+    _navigationService.replaceWith(Routes.homeView);
 
     // if (_authenticationService.userLoggedIn()) {
     //   _navigationService.replaceWith(Routes.homeView);

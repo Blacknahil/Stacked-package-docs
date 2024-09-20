@@ -10,6 +10,9 @@ import 'package:first_app/ui/views/counter/counter_view.dart';
 import 'package:first_app/ui/views/login/login_view.dart';
 import 'package:first_app/services/authentication_service.dart';
 import 'package:first_app/ui/views/text_reverse/text_reverse_view.dart';
+import 'package:first_app/ui/views/stream_counter/stream_counter_view.dart';
+import 'package:first_app/services/epoch_service_service.dart';
+import 'package:first_app/ui/views/multiple_futures_example/multiple_futures_example_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -22,6 +25,8 @@ import 'package:first_app/ui/views/text_reverse/text_reverse_view.dart';
       transitionsBuilder: CustomRouteTransition.SharedAxis,
     ),
     MaterialRoute(page: TextReverseView),
+    MaterialRoute(page: StreamCounterView),
+    MaterialRoute(page: MultipleFuturesExampleView),
 // @stacked-route
   ],
   dependencies: [
@@ -29,6 +34,7 @@ import 'package:first_app/ui/views/text_reverse/text_reverse_view.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthenticationService),
+    Singleton(classType: EpochServiceService),
 // @stacked-service
   ],
   bottomsheets: [

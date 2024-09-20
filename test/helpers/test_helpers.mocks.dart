@@ -7,6 +7,7 @@ import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
 import 'package:first_app/services/authentication_service.dart' as _i7;
+import 'package:first_app/services/epoch_service_service.dart' as _i8;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -686,4 +687,20 @@ class MockAuthenticationService extends _i1.Mock
         returnValue: false,
         returnValueForMissingStub: false,
       ) as bool);
+}
+
+/// A class which mocks [EpochServiceService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockEpochServiceService extends _i1.Mock
+    implements _i8.EpochServiceService {
+  @override
+  _i5.Stream<int> epochUpdatesNumbers() => (super.noSuchMethod(
+        Invocation.method(
+          #epochUpdatesNumbers,
+          [],
+        ),
+        returnValue: _i5.Stream<int>.empty(),
+        returnValueForMissingStub: _i5.Stream<int>.empty(),
+      ) as _i5.Stream<int>);
 }
