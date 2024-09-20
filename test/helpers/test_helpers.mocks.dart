@@ -6,6 +6,7 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
+import 'package:first_app/services/api_service.dart' as _i9;
 import 'package:first_app/services/authentication_service.dart' as _i7;
 import 'package:first_app/services/epoch_service_service.dart' as _i8;
 import 'package:flutter/material.dart' as _i4;
@@ -704,3 +705,8 @@ class MockEpochServiceService extends _i1.Mock
         returnValueForMissingStub: _i5.Stream<int>.empty(),
       ) as _i5.Stream<int>);
 }
+
+/// A class which mocks [ApiService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockApiService extends _i1.Mock implements _i9.ApiService {}

@@ -13,9 +13,13 @@ import 'package:first_app/ui/views/text_reverse/text_reverse_view.dart';
 import 'package:first_app/ui/views/stream_counter/stream_counter_view.dart';
 import 'package:first_app/services/epoch_service_service.dart';
 import 'package:first_app/ui/views/multiple_futures_example/multiple_futures_example_view.dart';
+import 'package:first_app/services/api_service.dart';
+import 'package:first_app/ui/views/artists/artists_view.dart';
+import 'package:first_app/ui/views/artists/artists_view.dart';
 // @stacked-import
 
 @StackedApp(
+  logger: StackedLogger(),
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
@@ -27,6 +31,8 @@ import 'package:first_app/ui/views/multiple_futures_example/multiple_futures_exa
     MaterialRoute(page: TextReverseView),
     MaterialRoute(page: StreamCounterView),
     MaterialRoute(page: MultipleFuturesExampleView),
+    MaterialRoute(page: ArtistsView),
+    MaterialRoute(page: ArtistsView),
 // @stacked-route
   ],
   dependencies: [
@@ -35,6 +41,7 @@ import 'package:first_app/ui/views/multiple_futures_example/multiple_futures_exa
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthenticationService),
     Singleton(classType: EpochServiceService),
+    LazySingleton(classType: ApiService),
 // @stacked-service
   ],
   bottomsheets: [

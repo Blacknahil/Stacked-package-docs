@@ -1,3 +1,5 @@
+import 'package:first_app/ui/views/login/login_view.dart';
+import 'package:first_app/ui/views/multiple_futures_example/multiple_futures_example_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:first_app/ui/common/app_colors.dart';
