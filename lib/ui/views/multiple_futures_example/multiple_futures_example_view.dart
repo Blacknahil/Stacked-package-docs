@@ -3,27 +3,38 @@ import 'package:stacked/stacked.dart';
 
 import 'multiple_futures_example_viewmodel.dart';
 
-class MultipleFuturesExampleView
-    extends StackedView<MultipleFuturesExampleViewModel> {
-  const MultipleFuturesExampleView({Key? key}) : super(key: key);
-
+class MultipleFuturesExampleView extends StatelessWidget {
   @override
-  Widget builder(
-    BuildContext context,
-    MultipleFuturesExampleViewModel viewModel,
-    Widget? child,
-  ) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-      ),
+  Widget build(BuildContext context) {
+    return ViewModelBuilder<MultipleFuturesExampleViewModel>.reactive(
+      builder: (context, viewModel, child) => Scaffold(
+          body: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            width: 50,
+            height: 50,
+            alignment: Alignment.center,
+            child: viewModel.fetchingNumber
+                ? const CircularProgressIndicator()
+                : Text(
+                    viewModel.fetchedNumber.toString(),
+                  ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: 50,
+            height: 50,
+            alignment: Alignment.center,
+            child: viewModel.fetchingString
+                ? const CircularProgressIndicator()
+                : Text(
+                    viewModel.fetchedString,
+                  ),
+          )
+        ],
+      )),
+      viewModelBuilder: () => MultipleFuturesExampleViewModel(),
     );
   }
-
-  @override
-  MultipleFuturesExampleViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      MultipleFuturesExampleViewModel();
 }
