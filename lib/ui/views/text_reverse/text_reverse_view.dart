@@ -7,7 +7,10 @@ import 'text_reverse_viewmodel.dart';
 
 @FormView(
   fields: [
-    FormTextField(name: "reverseInput"),
+    FormTextField(
+      name: "reverseInput",
+      validator: TextReverseValidators.validateReverseText,
+    ),
   ],
 )
 class TextReverseView extends StackedView<TextReverseViewModel>
@@ -57,6 +60,12 @@ class TextReverseView extends StackedView<TextReverseViewModel>
         ),
       ),
     );
+  }
+
+  @override
+  void onDispose(TextReverseViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
   }
 
   @override
